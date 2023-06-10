@@ -7,17 +7,7 @@ import System.IO
 
 type Posicao = (Int, Int)
 type CampoMinado = [[Bool]]
-
--- Funcao que verifica se a quantidade de minas é valida para o tabuleiro gerado
---quantMinas :: Int -> Int -> Bool
---quantMinas tamanhoTabuleiro quantidadeMinas = if quantidadeMinas <= 0
-       --                            then putStrLn ("Quantidade inválida, valor abaixo do permitido") 
-        --                                  False
-        --                         else if quantidadeMinas >= (tamanhoTabuleiro/2)
-        --                                 then putStrLn ("Quantidade inválida, valor acima do permitido") 
-         --                                 False
-         --                              else  True
-
+--data Bool = Fechada | Aberta | Marcada deriving (Eq, Show)
 
 
 -- Função para criar um campo minado vazio com um tamanho específico
@@ -60,7 +50,26 @@ printCampoMinado :: CampoMinado -> IO ()
 printCampoMinado campoMinadoGerado = mapM_ (putStrLn . unwords . map showRow) campoMinadoGerado
   where
     showRow True = "X"
-    showRow False = "_"   
+    showRow False = "_" 
+   -- showRow Marcada = "B"  
+
+
+-- Função para abrir uma posição no campo minado
+--abrirPosicao :: CampoMinado -> Posicao -> CampoMinado
+--abrirPosicao campoMinado (x, y) =
+--  updateElement campoMinado x y Aberta
+
+-- Função para marcar uma posição como tendo bomba
+--marcarPosicao :: CampoMinado -> Posicao -> CampoMinado
+--marcarPosicao campoMinado (x, y) =
+ -- updateElement campoMinado x y Marcada
+
+-- Função para desmarcar uma posiçãocomo tendo bomba
+--desmarcarPosicao :: CampoMinado -> Posicao -> CampoMinado
+--desmarcarPosicao campoMinado (x, y) =
+  --updateElement campoMinado x y Fechada
+
+
 
 
 -- Função para verificar se uma posição é válida no campo minado
