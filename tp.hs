@@ -151,4 +151,3 @@ main = do
   matrizFinal <- gerarEMarcarCoordenadas n validatedNumBombs matriz
   imprimirMatriz n matrizFinal
   imprimirVizinhos matrizFinal
-  imprimirBombasProximas matrizFinal
